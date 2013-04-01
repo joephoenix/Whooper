@@ -39,6 +39,6 @@ public class UserController {
         model.addAttribute("watches", m_user.get("links"));
         model.addAttribute("fans", m_user.get("fans"));
         model.addAttribute("alarms", alarmInfoService.findInfoByAuthor(m_user.get("idenfity")));
-        return "userpage";
+        return "u/userpage";
     }
 }

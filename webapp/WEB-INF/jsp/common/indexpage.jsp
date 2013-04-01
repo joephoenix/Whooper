@@ -37,7 +37,7 @@
 			  <li>说明2</li>
 			</ol>
 			<p>
-			  <a style="text-decoration: underline;" href="/register">
+			  <a style="text-decoration: underline;" href="register">
 			   注册一个用户
 			  </a>
                来准备开始。
