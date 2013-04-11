@@ -25,8 +25,8 @@ import org.hibernate.annotations.GenericGenerator;
 public class AlarmObject implements Serializable {
 
     @Id
-    @GeneratedValue(generator = "paymentableGenerator")
-    @GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
+    @GeneratedValue(generator = "paymentableGenerator")     
+    @GenericGenerator(name = "paymentableGenerator", strategy = "increment")   
     @Column(name = "AID")
     private Integer aid;
     @Column(name = "TITLE")
@@ -41,7 +41,7 @@ public class AlarmObject implements Serializable {
     @Column(name = "ALARM_TYPE")
     private Integer alarmType;
     @Column(name = "ALARM_DAY", columnDefinition = "DATE", insertable = true, updatable = true)
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date alarmDate;
     @Column(name = "ALARM_TIME", columnDefinition = "TIME", insertable = true, updatable = true)
     @Temporal(TemporalType.TIME)
