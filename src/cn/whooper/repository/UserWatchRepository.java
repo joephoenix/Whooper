@@ -10,11 +10,12 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
  * 读取用户关注对象的持久化对象接口
- *
+ * 
  * @author joephoenix
  */
-public interface UserWatchRepository extends CrudRepository<UserWatch, Integer>,
-        PagingAndSortingRepository<UserWatch, Integer> {
+public interface UserWatchRepository extends
+		CrudRepository<UserWatch, Integer>,
+		PagingAndSortingRepository<UserWatch, Integer> {
 
-    public UserWatch findByUseremail(String useremail);
+	public UserWatch findByUseremail(String useremail);
 }

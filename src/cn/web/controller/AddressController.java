@@ -24,7 +24,7 @@ public class AddressController {
 	private AddressService addressService;
 
 	/**
-	 * 获得�?��Addresses,并使他们成为�?��model. 
+	 * 获得�?��Addresses,并使他们成为�?��model.
 	 * 注意@ModelAttribute作用于method级别上时.会在@Controller执行时加�?
 	 * method里的方法.即在@Controller执行时@ModelAttribute添加参数.
 	 * 返回于该@Controller返回的所有JSP页面.
@@ -61,5 +61,5 @@ public class AddressController {
 		// This will resolve to /WEB-INF/jsp/addressespage.jsp
 		return "addressespage";
 	}
-/*xxxxxxxx*/
+	/* xxxxxxxx */
 }

@@ -10,26 +10,28 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 /**
- *
+ * 
  * @author joephoenix
  */
 public class AbstractBaseMongoTemplete implements ApplicationContextAware {
 
-    protected MongoTemplate mongoTemplate;
+	protected MongoTemplate mongoTemplate;
 
-    /**
-     * 设置mongoTemplate
-     *
-     * @param mongoTemplate the mongoTemplate to set
-     */
-    public void setMongoTemplate(MongoTemplate mongoTemplate) {
-        this.mongoTemplate = mongoTemplate;
-    }
+	/**
+	 * 设置mongoTemplate
+	 * 
+	 * @param mongoTemplate
+	 *            the mongoTemplate to set
+	 */
+	public void setMongoTemplate(MongoTemplate mongoTemplate) {
+		this.mongoTemplate = mongoTemplate;
+	}
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext)
-            throws BeansException {
-        MongoTemplate mongoTemplate = applicationContext.getBean("mongoTemplate", MongoTemplate.class);
-        setMongoTemplate(mongoTemplate);
-    }
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext)
+			throws BeansException {
+		MongoTemplate mongoTemplate = applicationContext.getBean(
+				"mongoTemplate", MongoTemplate.class);
+		setMongoTemplate(mongoTemplate);
+	}
 }

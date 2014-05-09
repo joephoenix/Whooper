@@ -10,11 +10,11 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
  * 读取用户粉丝的接口
- *
+ * 
  * @author joephoenix
  */
 public interface UserFansRepository extends CrudRepository<UserFans, Integer>,
-        PagingAndSortingRepository<UserFans, Integer> {
+		PagingAndSortingRepository<UserFans, Integer> {
 
-    public UserFans findByUseremail(String useremail);
+	public UserFans findByUseremail(String useremail);
 }

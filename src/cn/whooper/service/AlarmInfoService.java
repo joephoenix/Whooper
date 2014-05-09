@@ -18,26 +18,25 @@ import cn.whooper.repository.AlarmRepository;
 
 /**
  * 对提醒进行处理的服务，如提醒内容的读取，提醒发送状态的读取
- *
+ * 
  * @author joephoenix
  */
 @Service("alarmInfoService")
-public class AlarmInfoService  {
+public class AlarmInfoService {
 
-    @Autowired
-    private AlarmRepository alarmRepository;
+	@Autowired
+	private AlarmRepository alarmRepository;
 
-    public List<AlarmObject> findInfoByAuthor(String AuthorId) {
-        return alarmRepository.findByAuthor(AuthorId);
-    }
-   
-    public Page<AlarmObject> findBySome(Pageable p) {
-        return alarmRepository.findBySome( p);
-    }
-    
-    public void save(AlarmObject a){
-    	alarmRepository.save(a);
-    }
-    
+	public List<AlarmObject> findInfoByAuthor(String AuthorId) {
+		return alarmRepository.findByAuthor(AuthorId);
+	}
+
+	public Page<AlarmObject> findBySome(Pageable p) {
+		return alarmRepository.findBySome(p);
+	}
+
+	public void save(AlarmObject a) {
+		alarmRepository.save(a);
+	}
 
 }

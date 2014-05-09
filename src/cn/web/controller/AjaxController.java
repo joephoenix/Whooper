@@ -23,48 +23,46 @@ import cn.web.domain.Person;
 @Component
 public class AjaxController {
 
-	@RequestMapping(value="/body",method=RequestMethod.GET)
+	@RequestMapping(value = "/body", method = RequestMethod.GET)
 	@ResponseBody
-	public String h(HttpSession session){
+	public String h(HttpSession session) {
 		System.out.println(session);
 		return "df";
 	}
 
-	@RequestMapping("/json1")   
-    @ResponseBody      
-    public void addUser(HttpEntity<Person> model) {      
-      System.out.println("user: " + model.getBody());   
-  
-  }   
-	
+	@RequestMapping("/json1")
+	@ResponseBody
+	public void addUser(HttpEntity<Person> model) {
+		System.out.println("user: " + model.getBody());
+
+	}
+
 	/**
 	 * ajax检测用户名
+	 * 
 	 * @param enName
 	 * @return
 	 */
-	@RequestMapping(value="/checkLoginName", method = RequestMethod.GET)
+	@RequestMapping(value = "/checkLoginName", method = RequestMethod.GET)
 	@ResponseBody
-	public boolean checkLoginName( @RequestParam("enName") String enName){
-		
-		System.out.println("name:"+enName);
-		if ( enName.equals("true"))
+	public boolean checkLoginName(@RequestParam("enName") String enName) {
+
+		System.out.println("name:" + enName);
+		if (enName.equals("true"))
 			return true;
-		else 
+		else
 			return false;
 	}
 
-	/**	 
-     * 提交表单并进行运算
+	/**
+	 * 提交表单并进行运算
 	 */
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public @ResponseBody Integer add(
-			Integer inputNumber1,
-			 Integer inputNumber2,
-			 String cnName,
-			 HttpServletRequest request
-			 ) {
+	public @ResponseBody
+	Integer add(Integer inputNumber1, Integer inputNumber2, String cnName,
+			HttpServletRequest request) {
 		// 实现运算
-		
+
 		request(request);
 		System.out.println(cnName);
 		Integer sum = inputNumber1 + inputNumber2;
@@ -73,31 +71,32 @@ public class AjaxController {
 		// 但是你必须添加jackson的jar�?!!
 		return sum;
 	}
-	
+
 	@RequestMapping(value = "/get/{Id}", method = RequestMethod.POST)
-	public @ResponseBody Person getUser(@PathVariable("Id")String  id,HttpServletRequest request) {
+	public @ResponseBody
+	Person getUser(@PathVariable("Id") String id, HttpServletRequest request) {
 		request(request);
-		System.out.println("根据ID获取用户对象: " + id);		
-		Map<String,Person> users = new HashMap<String,Person>();
-		users.put("1", new Person( 23,"我们"));
-		users.put("2", new Person( 53,"sdfa"));
-		users.put("3", new Person( 93,"wrerw"));
-		users.put("4", new Person(13,"34343"));
-		Person a = new Person( 43,"jhjh");
-		a.setFriend(new Person(13,"34343"));
-		users.put("5", a);		
+		System.out.println("根据ID获取用户对象: " + id);
+		Map<String, Person> users = new HashMap<String, Person>();
+		users.put("1", new Person(23, "我们"));
+		users.put("2", new Person(53, "sdfa"));
+		users.put("3", new Person(93, "wrerw"));
+		users.put("4", new Person(13, "34343"));
+		Person a = new Person(43, "jhjh");
+		a.setFriend(new Person(13, "34343"));
+		users.put("5", a);
 		return users.get(id);
 	}
 
-	private void request(HttpServletRequest request){
+	private void request(HttpServletRequest request) {
 		System.out.println(request.getCharacterEncoding());
 		System.out.println(request.getContentType());
 		System.out.println(request.getProtocol());
-	
+
 		Enumeration<String> e = request.getHeaderNames();
-		while (e.hasMoreElements()){
+		while (e.hasMoreElements()) {
 			Object o = e.nextElement();
-			System.out.println(o+":"+request.getHeader((String)o));
+			System.out.println(o + ":" + request.getHeader((String) o));
 		}
 	}
 }
